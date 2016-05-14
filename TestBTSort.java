@@ -14,12 +14,13 @@ public class TestBTSort<E>{
 	/** Main method */
 	public static void main(String[] args) {
 		/** Test array */
-		Integer[] numbers = {-44, -5, -3, 3, 3, 1, -4, 0, 1, 2, 4, 5, 53};
+		System.out.print("This is a program to sort numbers with binary tree.");
+		Integer[] numbers = {-1, -5, -3, 3, -4, 0, 1, 2, 4, 75, 53};
 		
 		// Display the arry before sorted
 		System.out.print("\nBefore Sorted: ");
 		for(int i = 0; i<numbers.length ; i++){
-			System.out.print(numbers[i] + " ");
+			System.out.print(numbers[i] + "  ");
 		}
 		
 		// Display the arry after sorted

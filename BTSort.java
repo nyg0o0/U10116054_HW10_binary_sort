@@ -72,7 +72,7 @@ public class BTSort<E extends Comparable<E>> {
 	public void inOrder(TreeNode<E> root) {
 		if (root != null){
 			inOrder(root.left);
-			System.out.print(root.element + " ");
+			System.out.print(root.element + "  ");
 			inOrder(root.right);
 		}
 	}
@@ -95,5 +95,5 @@ public class BTSort<E extends Comparable<E>> {
 		}
 
 		return list; // Return an array list of nodes
-	} 
+	}
 }
