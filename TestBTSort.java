@@ -5,7 +5,9 @@ public class TestBTSort<E>{
 	/* Main method */
 	public static void main(String[] args) {
 		/* Test array */
-		Integer[] list = {-44, -5, -3, 3, 3, 1, -4, 0, 1, 2, 4, 5, 53};
-
+		Integer[] numbers = {-44, -5, -3, 3, 3, 1, -4, 0, 1, 2, 4, 5, 53};
+		 BTSort<Integer> intTree = new BTSort<>(numbers);
+		System.out.print("\nInorder (sorted): ");
+		intTree.inOrder();
 	}	
 }
