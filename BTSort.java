@@ -1,4 +1,4 @@
-/* Import java api */
+/** Import java api */
 import java.util.*;
 
 public class BTSort<E extends Comparable<E>> {
