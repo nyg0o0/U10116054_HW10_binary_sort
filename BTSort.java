@@ -2,9 +2,20 @@
 import java.util.*;
 
 public class BTSort<E extends Comparable<E>> {
+	/** This inner class is static, because it does not access
+		any instance members defined in its outer class */
+	public static class TreeNode<E extends Comparable<E>> {
+		public E element;
+		public TreeNode<E> left;
+		public TreeNode<E> right;
+
+		public TreeNode(E e) {
+		  element = e;
+		}
+    }
+	
 	/* Data fileds */
 	TreeNode<E> root;
-	protected int treeSize = 0;
 	
 	/** Create a default binary tree */
 	public BTSort(){
@@ -19,7 +30,7 @@ public class BTSort<E extends Comparable<E>> {
 
 	
 	/** A method to creat a binary tree from input objects */
-	public void creatBT(E e) {
+	public boolean creatBT(E e) {
 		if ( root == null ){
 			root = createNewNode(e); // Create a new root
 		}
@@ -37,31 +48,26 @@ public class BTSort<E extends Comparable<E>> {
 				current = current.right;
 			}
 			else
-
-
+				return false;
 			// Create the new node and attach it to the parent node
 			if (e.compareTo(parent.element) < 0)
 				parent.left = createNewNode(e);
 			else
 				parent.right = createNewNode(e);
 		}
-		treeSize++;
+		return true; // Element added
 	}
 
 	protected TreeNode<E> createNewNode(E e) {
 		return new TreeNode<>(e);
 	}
-	public int getTreeSize() {
-		return treeSize;
+
+	
+	/** Inorder traversal from the root */	
+	public void inOrder() {
+		inOrder(root);
 	}
-	/** A method to sort the tree */
-	public void inOrder(TreeNode<E> root) {
-		if (root != null){
-			inOrder(root.left);
-			System.out.print(root.element + " ");
-			inOrder(root.right);
-		}
-	}
+
 	/** A method to sort the tree */
 	public void inOrder(TreeNode<E> root) {
 		if (root != null){
@@ -90,16 +96,4 @@ public class BTSort<E extends Comparable<E>> {
 
 		return list; // Return an array list of nodes
 	} 
-	
-	/** This inner class is static, because it does not access 
-      any instance members defined in its outer class */
-	public static class TreeNode<E extends Comparable<E>> {
-		public E element;
-		public TreeNode<E> left;
-		public TreeNode<E> right;
-
-		public TreeNode(E e) {
-		  element = e;
-		}
-    }
 }
