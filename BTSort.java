@@ -60,7 +60,25 @@ public class BTSort<E extends Comparable<E>> {
 
 	}
 
+	/** Returns a path from the root leading to the specified element */
+	public ArrayList<TreeNode<E>> path(E e) {
+		ArrayList<TreeNode<E>> list = new ArrayList<>();
+		TreeNode<E> current = root; // Start from the root
 
+		while (current != null) {
+		  list.add(current); // Add the node to the list
+		  if (e.compareTo(current.element) < 0) {
+			current = current.left;
+		  }
+		  else if (e.compareTo(current.element) > 0) {
+			current = current.right;
+		  }
+		  else
+			break;
+		}
+
+		return list; // Return an array list of nodes
+	} 
 	
 	/** Inorder traversal from a subtree */
 	protected void inorder(TreeNode<E> root) {
