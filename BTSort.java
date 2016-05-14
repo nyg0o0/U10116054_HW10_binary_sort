@@ -1,8 +1,11 @@
+/* Import java api */
 import java.util.*;
 
-public class BTSort<E extends Comparable> {
-	TreeNode root;
-	int treeSize = 0;
+public class BTSort<E extends Comparable<E>> {
+	/* Data fileds */
+	TreeNode<E> root;
+	protected int treeSize = 0;
+	
 	/** Create a default binary tree */
 	public BTSort(){
 	}
@@ -10,23 +13,42 @@ public class BTSort<E extends Comparable> {
 	/** Create a binary tree from an array of objects */
 	public BTSort(E[] objects){
 		for (int i = 0; i < objects.length; i++){
-			if(i==0){
-				
-			}
 			creatBT(objects[i]);
 		}
 	}
 
 	
 	/** A method to creat a binary tree from input objects */
-	public void creatBT(E newObject) {
-		
+	public void creatBT(E e) {
+		if ( root == null ){
+			root = createNewNode(e); // Create a new root
+		}
+		else {
+			// Locate the parent node
+			TreeNode<E> parent = null;
+			TreeNode<E> current = root;
+			while (current != null)
+			if (e.compareTo(current.element) < 0) {
+				parent = current;
+				current = current.left;
+			}
+			else if (e.compareTo(current.element) > 0) {
+				parent = current;
+				current = current.right;
+			}
+			else
+
+
+			// Create the new node and attach it to the parent node
+			if (e.compareTo(parent.element) < 0)
+				parent.left = createNewNode(e);
+			else
+				parent.right = createNewNode(e);
+		}
+		treeSize++;
 	}
 
-	/** A method to sort the tree */
-	public void sortBT(E newObject) {
 
-	}
 	
 	/** This inner class is static, because it does not access 
       any instance members defined in its outer class */
