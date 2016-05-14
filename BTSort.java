@@ -48,7 +48,28 @@ public class BTSort<E extends Comparable<E>> {
 		treeSize++;
 	}
 
+	protected TreeNode<E> createNewNode(E e) {
+		return new TreeNode<>(e);
+	}
+	public int getTreeSize() {
+		return treeSize;
+	}
 
+	/** A method to sort the tree */
+	public void sortBT(TreeNode<E> root) {
+
+	}
+
+
+	
+	/** Inorder traversal from a subtree */
+	protected void inorder(TreeNode<E> root) {
+		if (root != null){
+			inorder(root.left);
+			System.out.print(root.element + " ");
+			inorder(root.right);
+		}
+	}
 	
 	/** This inner class is static, because it does not access 
       any instance members defined in its outer class */
